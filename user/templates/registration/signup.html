@@ -1,0 +1,43 @@
+{% extends 'registration/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} SignUp {% endblock title %}
+
+{% block body %}
+
+<div class="text-light text-center mb-1 mt-3">
+  <h3>Sign Up</h3>
+</div>
+
+<div class="container mt-1 text-center">
+
+  <div class="card bg-dark border-info border-4">
+      <div class="card-body">
+      <div class="text-light">
+          <h4>Be The Right One</h4>
+          <p>Your data your identity, the right one has the right identity, register yours and be right!</p>
+        </div>
+      <div class="">
+        <form method="post" class="text-light ">
+          {% csrf_token %}
+            <span>Username:</span>
+            {% render_field form.username class='test' %}</br>
+            <p></p>
+
+            <span>Password:</span>
+            {% render_field form.password1 %}</br>
+            <p></p>
+
+            <span>Comfirm Password:</span>
+            {% render_field form.password2 %}<br>
+            <p></p>
+
+          <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+
+</div>
+
+{% endblock body %}

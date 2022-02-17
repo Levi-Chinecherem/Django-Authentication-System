@@ -1,0 +1,35 @@
+{% extends 'registration/base.html' %}
+
+{% block title %} Account~Home {% endblock title %}
+
+{% block body %}
+
+<div class="text-light text-center mb-1 mt-5">
+  <h3>Home</h3>
+</div>
+
+<div class="container mt-1 text-center">
+
+  <div class="card bg-dark border-info border-4">
+      <div class="card-body">
+        <div class="text-light">
+          <h4>Join Our News Forum</h4>
+          <p>Drop your mail to recieve our promo, give aways, cupons etc. Never miss our updates again</p>
+        </div>
+      
+      <div class="">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label form-text">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary">Calculate</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+
+</div>
+
+{% endblock body %}

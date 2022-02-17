@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Accounts{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  </head>
+  <body class="bg-dark">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+      <<!-- Nav tabs -->
+      <ul class="nav nav-tabs text-center mt-0 pt-0" id="navId">
+        <div class="container">
+          <div class="text-info form-text mt-0 pt-0">
+            <h1>Welcome,{%if user.is_authenticated%} {{ user.username }}! {% else %}Friend! {% endif %}</h1>
+          </div>
+
+          <div class="mb-2">
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'home' %}" class="nav-link">Home</a>
+            </li>
+
+            {%if user.is_authenticated%}
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'change-password' %}" class="nav-link">Change Password</a>
+            </li>
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
+            </li>
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'reset_password' %}" class="nav-link">Reset Password</a>
+            </li>
+            {% else %}
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+            </li>
+            <li class="nav-item btn btn-outline-info">
+              <a href="{% url 'login' %}" class="nav-link">Log In</a>
+            </li>
+            {% endif %}
+          </div>
+        </div>
+      </ul>
+      <hr class="text-info mt-1 pt-1">
+
+    {% block body %} {% endblock body %}
+
+    <script src="{% static 'js/bootstrap.js' %}" async defer></script>
+  </body>
+</html>

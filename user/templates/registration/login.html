@@ -1,0 +1,48 @@
+{% extends 'registration/base.html' %}
+
+{% block title %} Login {% endblock title %}
+
+{% block body %}
+
+<div class="text-light text-center mb-1 mt-5">
+  <h3>Log In</h3>
+</div>
+
+<div class="container mt-1 text-center">
+
+  <div class="card bg-dark border-info border-4">
+      <div class="card-body">
+        <div class="text-light">
+          <h4>The only way forward is if you login with the right</h4>
+          <p>Only attempt logging in with your own credentials, any attempt found fishy will be penalised</p>
+        </div>
+
+        <div class="">
+        <form method="post" class="text-light">
+          {% csrf_token %}
+
+           <span>Username:</span>
+            <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" class="test" required="" id="username"><br>
+            <p></p>
+            <span>Password:</span>
+            <input type="password" name="password" autocomplete="password" required="" id="password"><br>
+            <p></p>
+
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            <p>Forgot Password?
+                <a href="{% url 'reset_password' %}" class="nav-link">Reset Password</a></p>
+
+          <button type="submit" class="btn btn-outline-primary">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+
+</div> 
+
+</div>
+
+
+{% endblock body %}
